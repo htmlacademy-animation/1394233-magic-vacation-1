@@ -10,20 +10,20 @@
     li {
       &:nth-child(2n) {
         .social-block__link {
-          transition-delay: 0.1s;
+          transition-delay: 0.15s;
         }
       }
       &:nth-child(3n) {
         .social-block__link {
-          transition-delay: 0.2s;
+          transition-delay: 0.25s;
         }
       }
     }
 
     .social-block__link {
-      top: 0;
+      bottom: 0;
       opacity: 1;
-      transition: opacity 0.2s ease-in, top 0.2s ease-in;
+      transition: opacity 0.35s ease-in, bottom 0.35s ease-in;
     }
   }
 }
@@ -54,6 +54,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width 0.15s ease-in, height 0.15s ease-in;
   }
 
   svg {
@@ -68,6 +69,7 @@
     color: $c-purple;
 
     &::before {
+      transition: width 0.35s ease-in, height 0.35s ease-in;
       width: 112.5%;
       height: 112.5%;
     }
@@ -91,6 +93,7 @@
             transition-delay: 0.1s;
           }
         }
+
         &:nth-child(3n) {
           .social-block__link {
             transition-delay: 0.2s;
@@ -221,7 +224,7 @@
 
 .social-block__link {
   position: relative;
-  top: -4px;
+  bottom: -4px;
   display: block;
   width: 4rem;
   height: 4rem;
@@ -254,6 +257,7 @@
     background-color: $c-light;
     border-color: $c-purple;
     outline: none;
+    transition: background-color 0.35s ease-in;
   }
 
   &:active,
