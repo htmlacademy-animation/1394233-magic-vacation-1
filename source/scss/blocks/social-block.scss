@@ -6,6 +6,25 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    li {
+      &:nth-child(2n) {
+        .social-block__link {
+          transition-delay: 0.15s;
+        }
+      }
+      &:nth-child(3n) {
+        .social-block__link {
+          transition-delay: 0.25s;
+        }
+      }
+    }
+
+    .social-block__link {
+      bottom: 0;
+      opacity: 1;
+      transition: opacity 0.35s ease-in, bottom 0.35s ease-in;
+    }
   }
 }
 
@@ -35,6 +54,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width 0.15s ease-in, height 0.15s ease-in;
   }
 
   svg {
@@ -49,6 +69,7 @@
     color: $c-purple;
 
     &::before {
+      transition: width 0.35s ease-in, height 0.35s ease-in;
       width: 112.5%;
       height: 112.5%;
     }
@@ -65,6 +86,26 @@
     & + .social-block__list {
       opacity: 1;
       pointer-events: auto;
+
+      li {
+        &:nth-child(2n) {
+          .social-block__link {
+            transition-delay: 0.1s;
+          }
+        }
+
+        &:nth-child(3n) {
+          .social-block__link {
+            transition-delay: 0.2s;
+          }
+        }
+      }
+
+      .social-block__link {
+        top: 0;
+        opacity: 1;
+        transition: opacity 0.2s ease-in, top 0.2s ease-in;
+      }
     }
   }
 
@@ -77,6 +118,27 @@
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
+    }
+
+    & + .social-block__list {
+      li {
+        &:nth-child(2n) {
+          .social-block__link {
+            transition-delay: 0.1s;
+          }
+        }
+        &:nth-child(3n) {
+          .social-block__link {
+            transition-delay: 0.2s;
+          }
+        }
+      }
+
+      .social-block__link {
+        top: 0;
+        opacity: 1;
+        transition: opacity 0.2s ease-in, top 0.2s ease-in;
+      }
     }
   }
 }
@@ -162,12 +224,14 @@
 
 .social-block__link {
   position: relative;
+  bottom: -4px;
   display: block;
   width: 4rem;
   height: 4rem;
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -193,6 +257,7 @@
     background-color: $c-light;
     border-color: $c-purple;
     outline: none;
+    transition: background-color 0.35s ease-in;
   }
 
   &:active,
