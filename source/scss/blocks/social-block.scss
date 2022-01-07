@@ -54,7 +54,12 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: width 0.15s ease-in, height 0.15s ease-in;
+  }
+
+  .page-loaded & {
+    &::before {
+      animation: onLoadScaleButton 0.35s cubic-bezier(.07,.8,.5,.78);
+    }
   }
 
   svg {
@@ -305,5 +310,23 @@
         height: 10px;
       }
     }
+  }
+}
+
+@keyframes onLoadScaleButton {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
