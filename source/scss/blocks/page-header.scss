@@ -31,11 +31,18 @@
   position: relative;
   flex: none;
   top: -0.5rem;
-  left: -100%;
+  left: -30px;
   display: block;
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transition: left 0.35s cubic-bezier(.07,.8,.5,.78), opacity 0.35s cubic-bezier(.07,.8,.5,.78);
+
+  .page-loaded & {
+    left: 0;
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -130,9 +137,14 @@
 
 .page-header__nav {
   position: relative;
-  right: -100%;
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(.07,.8,.5,.78);
+
+  .page-loaded & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -249,11 +261,11 @@
       content: "";
       position: absolute;
       bottom: 0;
+      right: 0;
       width: 0;
       height: 2px;
       background-color: $c-light;
       display: block;
-      right: 0;
       transition: width 0.35s ease-in;
 
       @media (max-width: $tablet) and (orientation: portrait) {
@@ -266,6 +278,13 @@
         left: 0;
         right: 0;
         background-color: $c-dark;
+      }
+    }
+
+    &.animated {
+      &::after {
+        left: 0;
+        animation: showLineBottom 0.35s cubic-bezier(.07,.8,.5,.78);
       }
     }
 
@@ -305,6 +324,20 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
+    width: 100%;
+  }
+}
+
+@keyframes showLineBottom {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 80%;
+  }
+
+  100% {
     width: 100%;
   }
 }
