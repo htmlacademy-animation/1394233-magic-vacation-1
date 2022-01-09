@@ -132,7 +132,7 @@
     transform: translateY(0);
   }
 
-  @media (min-width: $tablet) {
+  @media (min-width: $mobile + 1) {
     .swiper-slide-next & {
       opacity: 1;
       transform: translateY(0);

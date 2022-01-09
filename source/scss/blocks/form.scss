@@ -32,7 +32,6 @@
 
 .form__field {
   flex: none;
-  margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
   width: 0;
@@ -73,23 +72,30 @@
   }
 
   .screen.active & {
-    width: calc(100% - 21rem);
+    width: 100%;
+  }
+}
 
-    @media (min-width: $stop-scaling) {
-      width: calc(100% - 210px);
-    }
+.form__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100% - 21rem);
+  margin-right: 3rem;
 
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
+  @media (min-width: $stop-scaling) {
+    width: calc(100% - 210px);
+  }
 
-    @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
-    }
+  @media (orientation: portrait) {
+    width: calc(100% - 5rem);
+  }
 
-    @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
-    }
+  @media (max-width: $tablet) and (orientation: landscape) {
+    width: calc(100% - 9rem);
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    width: calc(100% - 5rem);
   }
 }
 
