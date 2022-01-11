@@ -49,15 +49,19 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    if (this.screenElements[1].classList.contains(`active`)) {
+    if (this.screenElements[1].classList.contains(`active`) && this.activeScreen === 2) {
       this.backgroudElement.classList.add(`screen__bg-layout--active`);
-    }
 
-    setTimeout(() => {
+      setTimeout(() => {
+        this.changeVisibilityDisplay();
+        this.changeActiveMenuItem();
+        this.emitChangeDisplayEvent();
+      }, 600);
+    } else {
       this.changeVisibilityDisplay();
       this.changeActiveMenuItem();
       this.emitChangeDisplayEvent();
-    }, 600);
+    }
   }
 
   changeVisibilityDisplay() {
@@ -66,7 +70,7 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
 
-    if (this.prevScreen === 1) {
+    if (this.prevScreen === 1 && this.activeScreen === 2) {
       this.backgroudElement.classList.remove(`screen__bg-layout--active`);
     }
 
