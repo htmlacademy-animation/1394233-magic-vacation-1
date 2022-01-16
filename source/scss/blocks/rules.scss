@@ -145,6 +145,30 @@
   }
 
   &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: $c-purple;
+    border-radius: 50%;
+    transform: scale(0);
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      top: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      top: 0.6rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &::after {
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -155,10 +179,9 @@
     font-family: $font-alt;
     font-weight: 400;
     font-size: 2.4rem;
-    background-color: $c-purple;
-    border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -179,6 +202,8 @@
 
   p {
     margin: 0;
+    transform: translateX(10px);
+    opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
