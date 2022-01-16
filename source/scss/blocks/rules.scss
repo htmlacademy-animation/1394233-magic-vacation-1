@@ -90,7 +90,11 @@
 .rules__list {
   @include list-reset;
   counter-reset: li;
-  column-count: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+  // column-count: 2;
   column-gap: 9.6rem;
   margin: auto;
   padding-top: 7rem;
@@ -103,7 +107,9 @@
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    column-count: auto;
+    grid-template-columns: auto;
+    grid-auto-flow: initial;
+    // column-count: auto;
     column-gap: 0;
     padding: 0 2.5rem;
   }
