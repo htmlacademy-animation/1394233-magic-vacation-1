@@ -3078,7 +3078,10 @@ img {
   margin: 0;
   list-style: none;
   counter-reset: li;
-  column-count: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
   column-gap: 9.6rem;
   margin: auto;
   padding-top: 7rem;
@@ -3093,7 +3096,8 @@ img {
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .rules__list {
-    column-count: auto;
+    grid-template-columns: auto;
+    grid-auto-flow: initial;
     column-gap: 0;
     padding: 0 2.5rem;
   }
