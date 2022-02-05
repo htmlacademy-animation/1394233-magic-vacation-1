@@ -9,6 +9,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import pageLoaded from './modules/page-loaded.js';
+import {AccentTypographyBuild} from './modules/accent-typografy-build.js';
 
 // init modules
 pageLoaded();
@@ -23,3 +24,9 @@ social();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+const animationTopScreenTextLine = new AccentTypographyBuild(`.js-accent-text`, 500, `active`, `transform`);
+
+setTimeout(()=>{
+  animationTopScreenTextLine.runAnimation();
+}, 500);
