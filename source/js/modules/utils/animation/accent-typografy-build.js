@@ -3,7 +3,8 @@ export class AccentTypographyBuild {
       elementSelector,
       timer,
       classForActivate,
-      property
+      property,
+      isOneLine
   ) {
     this._TIME_SPACE = 100;
 
@@ -12,34 +13,29 @@ export class AccentTypographyBuild {
     this._classForActivate = classForActivate;
     this._property = property;
     this._element = document.querySelector(this._elementSelector);
+    this._isOneLine = isOneLine;
     this._timeOffset = 40;
+    this._oneLineLetters = [];
 
     this.prePareText();
   }
 
-  createElement(letter) {
+  createElement(letter, index) {
     const span = document.createElement(`span`);
     span.textContent = letter;
-
+    this.addTransitionProperties(span, index);
     return span;
   }
 
-  addTransitionProperties(span, index, wordIndex) {
+  addTransitionProperties(span, index) {
     span.style.transition = `${this._property} ${this._timer}ms ease ${this._timeOffset}ms`;
-    console.log(index % 7, span.textContent, this._timeOffset);
-    // 40 20 0 20 40 20 0
-    //  0  1 2  3  4  5 6
 
     if (index % 7 >= 0 && index % 7 < 2 || index % 7 >= 4 && index % 7 < 6) {
       this._timeOffset -= 20;
     } else if (index % 7 === 2) {
       this._timeOffset += 20;
     } else if (index % 7 === 6) {
-      if (wordIndex === 1) {
-        this._timeOffset = 160;
-      } else {
-        this._timeOffset = 60;
-      }
+      this._timeOffset = 60;
     } else {
       this._timeOffset += 20;
     }
@@ -50,34 +46,30 @@ export class AccentTypographyBuild {
       return;
     }
 
-    const text = this._element.textContent.trim().split(` `).filter((letter)=>letter !== ``);
+    if (this._isOneLine) {
+      this._oneLineLetters.push(this._element.textContent);
+    }
 
-    const content = text.reduce((fragmentParent, word, wordIndex) => {
-      const wordElement = Array.from(word).reduce((fragment, letter, index) => {
-        fragment.appendChild(this.createElement(letter, index, wordIndex));
-        return fragment;
-      }, document.createDocumentFragment());
+    const text = this._isOneLine ? this._oneLineLetters
+      : this._element.textContent.trim().split(` `).filter((letter)=>letter !== ``);
 
+    const content = text.reduce((fragmentParent, word) => {
+      const wordElement = Array.from(word).reduce(
+          (fragment, letter, index) => {
+            fragment.appendChild(this.createElement(letter, index));
+            return fragment;
+          },
+          document.createDocumentFragment()
+      );
       const wordContainer = document.createElement(`span`);
       wordContainer.classList.add(`text__word`);
       wordContainer.appendChild(wordElement);
-
-      if (wordIndex === 1) {
-        this._timeOffset = 160;
-      }
-
-      Array.from(wordContainer.childNodes).forEach((element, index) => {
-        this.addTransitionProperties(element, index);
-      });
-
       fragmentParent.appendChild(wordContainer);
       return fragmentParent;
     }, document.createDocumentFragment());
 
     this._element.innerHTML = ``;
     this._element.appendChild(content);
-
-    console.log(this._element);
   }
 
   runAnimation() {
