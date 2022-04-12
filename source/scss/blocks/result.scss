@@ -45,12 +45,12 @@
     z-index: -1;
   }
 
-  @media (orientation: portrait) {
-    left: -1rem;
-    right: -1rem;
-  }
-
   &:not(.result__image--update) {
+    @media (orientation: portrait) {
+      left: -1rem;
+      right: -1rem;
+    }
+
     picture {
       display: block;
       width: 100%;
@@ -72,38 +72,97 @@
   left: 0;
 
   &--leaf-blue-left {
-    width: 362px !important;
-    height: auto !important;
+    width: 362px;
+    height: auto;
     left: 0;
     bottom: 164px;
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: 284px;
+      left: 84px;
+      bottom: 131px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 510px;
+      left: -161px;
+      bottom: 97px;
+    }
   }
   &--leaf-blue-right {
-    width: 356px !important;
-    height: auto !important;
+    width: 356px;
+    height: auto;
     left: auto;
     right: 32px;
     bottom: 269px;
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: 284px;
+      right: 110px;
+      bottom: 210px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 510px;
+      right: -152px;
+      bottom: 244px;
+    }
   }
   &--leaf-green {
-    width: 434px !important;
-    height: auto !important;
+    width: 434px;
+    height: auto;
     left: auto;
     right: 0;
     bottom: 226px;
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: 360px;
+      right: 79px;
+      bottom: 176px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 578px;
+      right: -170px;
+      bottom: 188px;
+    }
   }
   &--flamingo {
-    width: 328px !important;
-    height: auto !important;
+    width: 328px;
+    height: auto;
     left: 137px;
     bottom: 170px;
     z-index: 1;
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: 269px;
+      left: 191px;
+      bottom: 129px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 477px;
+      left: 37px;
+      bottom: 99px;
+    }
   }
   &--suitcase {
-    width: 440px !important;
-    height: auto !important;
+    width: 440px;
+    height: auto;
     left: 48%;
     bottom: 161px;
     transform: translateX(-50%);
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: 360px;
+      bottom: 121px;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      width: 636px;
+      left: 49%;
+      bottom: 88px;
+    }
   }
 }
 
