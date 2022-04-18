@@ -42,7 +42,7 @@
     width: 829px;
     height: 674px;
     transform: translateX(-50%);
-    z-index: -1;
+    z-index: -11;
   }
 
   &:not(.result__image--update) {
@@ -88,6 +88,12 @@
       left: -161px;
       bottom: 97px;
     }
+
+    @media (max-width: $mobile) {
+      width: 325px;
+      left: 48px;
+      bottom: 158px;
+    }
   }
   &--leaf-blue-right {
     width: 356px;
@@ -106,6 +112,12 @@
       width: 510px;
       right: -152px;
       bottom: 244px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 322px;
+      right: 57px;
+      bottom: 254px;
     }
   }
   &--leaf-green {
@@ -126,6 +138,12 @@
       right: -170px;
       bottom: 188px;
     }
+
+    @media (max-width: $mobile) {
+      width: 382px;
+      right: 38px;
+      bottom: 214px;
+    }
   }
   &--flamingo {
     width: 328px;
@@ -145,6 +163,12 @@
       left: 37px;
       bottom: 99px;
     }
+
+    @media (max-width: $mobile) {
+      width: 309px;
+      left: 169px;
+      bottom: 159px;
+    }
   }
   &--suitcase {
     width: 440px;
@@ -162,6 +186,11 @@
       width: 636px;
       left: 49%;
       bottom: 88px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 409px;
+      bottom: 147px;
     }
   }
 }
