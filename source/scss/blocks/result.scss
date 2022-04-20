@@ -24,47 +24,15 @@
 
 .result__image {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: auto;
+  right: auto;
   bottom: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  left: 48%;
+  display: flex;
+  width: 829px;
+  height: 674px;
+  transform: translateX(-50%);
   z-index: -1;
-
-  &--update {
-    top: auto;
-    right: auto;
-    left: 48%;
-    display: flex;
-    width: 829px;
-    height: 674px;
-    transform: translateX(-50%);
-    z-index: -11;
-  }
-
-  &:not(.result__image--update) {
-    @media (orientation: portrait) {
-      left: -1rem;
-      right: -1rem;
-    }
-
-    picture {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
 }
 
 .result__img {
@@ -74,8 +42,13 @@
   &--leaf-blue-left {
     width: 362px;
     height: auto;
-    left: 0;
     bottom: 164px;
+    opacity: 0;
+
+    .screen--show & {
+      transform-origin: right center;
+      animation: leaf-left-show 1.7s ease-in-out 0.5s forwards;
+    }
 
     @media (max-width: $tablet) and (orientation: landscape) {
       width: 284px;
@@ -101,6 +74,12 @@
     left: auto;
     right: 32px;
     bottom: 269px;
+    opacity: 0;
+
+    .screen--show & {
+      transform-origin: left center;
+      animation: leaf-right-show 1.8s ease-in-out 0.6s forwards;
+    }
 
     @media (max-width: $tablet) and (orientation: landscape) {
       width: 284px;
@@ -126,6 +105,12 @@
     left: auto;
     right: 0;
     bottom: 226px;
+    opacity: 0;
+
+    .screen--show & {
+      transform-origin: left center;
+      animation: green-leaf-show 2s ease-in-out 0.5s forwards;
+    }
 
     @media (max-width: $tablet) and (orientation: landscape) {
       width: 360px;
@@ -152,6 +137,11 @@
     bottom: 170px;
     z-index: 1;
 
+    .screen--show & {
+      animation: flamingo-show 0.4s ease-in 0.5s both,
+        flamingo-rotate 0.7s linear 0.9s infinite alternate;
+    }
+
     @media (max-width: $tablet) and (orientation: landscape) {
       width: 269px;
       left: 191px;
@@ -175,7 +165,12 @@
     height: auto;
     left: 48%;
     bottom: 161px;
-    transform: translateX(-50%);
+    bottom: 24%;
+    transform: translate3d(-50%, 58%, 0) scale(0.1);
+
+    .screen--show & {
+      animation: suitcase-show 0.3s ease-in 0.5s both;
+    }
 
     @media (max-width: $tablet) and (orientation: landscape) {
       width: 360px;
@@ -407,5 +402,97 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 45rem;
     }
+  }
+}
+
+@keyframes suitcase-show {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 58%, 0) scale(0.05);
+  }
+  1% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, 0%, 0) scale(1);
+  }
+}
+@keyframes flamingo-show {
+  0% {
+    opacity: 0;
+    transform: translate3d(0%, 73%, 0) rotate(-23deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0%, 0%, 0) rotate(-2deg);
+  }
+}
+@keyframes flamingo-rotate {
+  0% {
+    transform: translate3d(0%, 2%, 0) rotate(-2deg);
+  }
+
+  100% {
+    transform: translate3d(0%, -3%, 0) rotate(4deg);
+  }
+}
+
+@keyframes leaf-left-show {
+  0% {
+    transform: rotate(-23deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-right-show {
+  0% {
+    transform: rotate(-23deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes green-leaf-show {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  75% {
+    transform: rotate(-7deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
   }
 }
