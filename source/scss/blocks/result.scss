@@ -47,7 +47,7 @@
 
     .screen--show & {
       transform-origin: right center;
-      animation: leaf-left-show 1.7s ease-in-out 0.5s forwards;
+      animation: leaf-left-show 1.7s ease-in-out forwards;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
@@ -78,7 +78,7 @@
 
     .screen--show & {
       transform-origin: left center;
-      animation: leaf-right-show 1.8s ease-in-out 0.6s forwards;
+      animation: leaf-right-show 1.8s ease-in-out 0.1s forwards;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
@@ -109,7 +109,7 @@
 
     .screen--show & {
       transform-origin: left center;
-      animation: green-leaf-show 2s ease-in-out 0.5s forwards;
+      animation: green-leaf-show 2s ease-in-out forwards;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
@@ -138,8 +138,8 @@
     z-index: 1;
 
     .screen--show & {
-      animation: flamingo-show 0.4s ease-in 0.5s both,
-        flamingo-rotate 0.7s linear 0.9s infinite alternate;
+      animation: flamingo-show 0.4s ease-in both,
+        flamingo-rotate 0.7s linear 0.4s infinite alternate;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
@@ -169,7 +169,7 @@
     transform: translate3d(-50%, 58%, 0) scale(0.1);
 
     .screen--show & {
-      animation: suitcase-show 0.3s ease-in 0.5s both;
+      animation: suitcase-show 0.3s ease-in both;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
