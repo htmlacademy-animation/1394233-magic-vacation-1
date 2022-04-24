@@ -132,7 +132,7 @@
     transform: translateY(0);
   }
 
-  @media (min-width: $mobile + 1) {
+  @media (min-width: ($mobile + 1)) {
     .swiper-slide-next & {
       opacity: 1;
       transform: translateY(0);
@@ -176,6 +176,18 @@
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;
+  }
+
+  &--prev {
+    .active & {
+      animation: button-prev-scrollIn 0.4s ease-in both;
+    }
+  }
+
+  &--next {
+    .active & {
+      animation: button-next-scrollIn 0.4s ease-in both;
+    }
   }
 
   &::before {
@@ -251,6 +263,10 @@
   font-size: 2.4rem;
   line-height: 4rem;
 
+  .active & {
+    animation: fadeIn 0.4s ease-in both;
+  }
+
   @media (min-width: $stop-scaling) {
     bottom: 28px;
     width: 90px;
@@ -291,5 +307,29 @@
       height: 0.4rem;
       background-color: $c-light;
     }
+  }
+}
+
+@keyframes button-prev-scrollIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(-200%, 0, 0) rotate(-180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+@keyframes button-next-scrollIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(200%, 0, 0) rotate(180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0);
   }
 }
