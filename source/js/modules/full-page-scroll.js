@@ -79,7 +79,7 @@ export default class FullPageScroll {
     }
 
 
-    if (this.prevScreen === 2 && this.activeScreen === 3) {
+    if (this.prevScreen === 2 && this.activeScreen === 3 && window.matchMedia(`(min-width: 1025px)`).matches) {
       this.screenElements[this.prevScreen].classList.add(`screen--hide-footer`);
       setTimeout(() => {
         this.screenElements[this.prevScreen].classList.add(`screen--hidden`);
