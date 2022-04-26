@@ -23,6 +23,10 @@
     font-size: 1.2rem;
     line-height: 1.2;
 
+    .screen--show-disclamer & {
+      animation: fadeIn 0.3s ease-in both;
+    }
+
     @media (min-width: $stop-scaling) {
       font-size: 12px;
     }

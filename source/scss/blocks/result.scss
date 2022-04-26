@@ -252,6 +252,10 @@
   line-height: 1.2;
   color: $c-light;
 
+  .screen--show & {
+    animation: fadeIn 0.35s ease-in both;
+  }
+
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
     min-width: 340px;
@@ -283,6 +287,10 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+
+    .screen--show & {
+      animation: replay-button-scrollIn 0.35s ease-in both;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -494,5 +502,15 @@
   100% {
     transform: rotate(0deg);
     opacity: 1;
+  }
+}
+
+@keyframes replay-button-scrollIn {
+  0% {
+    transform: translate3d(200%, 0, 0) rotate(180deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0);
   }
 }

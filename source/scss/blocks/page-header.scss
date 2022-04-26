@@ -305,6 +305,30 @@
       color: $c-purple;
       outline: none;
 
+      body.first-slide & {
+        color: #5F458C;
+
+        &::after {
+          background-color: #5F458C;
+        }
+      }
+
+      body.second-slide & {
+        color: #A0CEFF;
+
+        &::after {
+          background-color: #A0CEFF;
+        }
+      }
+
+      body.third-slide & {
+        color: #3E72EE;
+
+        &::after {
+          background-color: #3E72EE;
+        }
+      }
+
       &::after {
         left: 0;
         right: auto;

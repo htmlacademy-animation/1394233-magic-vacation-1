@@ -66,18 +66,36 @@ export default class FullPageScroll {
 
   changeVisibilityDisplay() {
     this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
+      if (this.prevScreen !== 2 && this.activeScreen !== 3) {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+        screen.classList.remove(`screen--hide-footer`);
+        screen.classList.remove(`screen--show-disclamer`);
+      }
     });
 
     if (this.prevScreen === 1 && this.activeScreen === 2) {
       this.backgroudElement.classList.remove(`screen__bg-layout--active`);
     }
 
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+
+    if (this.prevScreen === 2 && this.activeScreen === 3 && window.matchMedia(`(min-width: 1025px)`).matches) {
+      this.screenElements[this.prevScreen].classList.add(`screen--hide-footer`);
+      setTimeout(() => {
+        this.screenElements[this.prevScreen].classList.add(`screen--hidden`);
+        this.screenElements[this.prevScreen].classList.remove(`active`);
+
+        this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+        this.screenElements[this.activeScreen].classList.add(`active`);
+        this.screenElements[this.activeScreen].classList.add(`screen--show-disclamer`);
+      }, 300);
+    } else {
+      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].classList.add(`active`);
+      }, 100);
+    }
+
   }
 
   changeActiveMenuItem() {

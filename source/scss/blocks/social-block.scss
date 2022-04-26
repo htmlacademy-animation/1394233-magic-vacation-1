@@ -36,6 +36,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.2s ease-in;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -43,6 +44,22 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     display: none;
+  }
+
+  body.slider-init & {
+    transition-delay: 1s;
+  }
+
+  body.first-slide & {
+    color: #a67ee5;
+  }
+
+  body.second-slide & {
+    color: #3e72ee;
+  }
+
+  body.third-slide & {
+    color: #A7D4FF;
   }
 
   &::before {
@@ -53,12 +70,13 @@
     border-radius: 50%;
     background-color: $c-light;
     border: 2px solid $c-light;
+    transition: transform 0.35s ease-in;
     z-index: -1;
   }
 
   .page-loaded & {
     &::before {
-      animation: onLoadScaleButton 0.35s cubic-bezier(.07,.8,.5,.78);
+      animation: onLoadScaleButton 0.35s cubic-bezier(0.07, 0.8, 0.5, 0.78);
     }
   }
 
@@ -73,16 +91,47 @@
   .social-block--active & {
     color: $c-purple;
 
+    body.first-slide & {
+      color: #5F458C;
+    }
+
+    body.second-slide & {
+      color: #A0CEFF;
+    }
+
+    body.third-slide & {
+      color: #3E72EE;
+    }
+
     &::before {
-      transition: width 0.35s ease-in, height 0.35s ease-in;
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate3d(-50%, -50%, 0) scale3d(1.1, 1.1, 1.1);
     }
   }
 
   &:focus {
     color: $c-purple;
     outline: none;
+
+    body.first-slide & {
+      color: #5F458C;
+      &::before {
+        border-color: #5F458C;
+      }
+    }
+
+    body.second-slide & {
+      color: #A0CEFF;
+      &::before {
+        border-color: #A0CEFF;
+      }
+    }
+
+    body.third-slide & {
+      color: #3E72EE;
+      &::before {
+        border-color: #3E72EE;
+      }
+    }
 
     &::before {
       border-color: $c-purple;
@@ -117,6 +166,35 @@
   &:active,
   &:active:focus {
     color: $c-light;
+
+    body.first-slide &,
+    body.second-slide &,
+    body.third-slide & {
+      color: #fff;
+      &::before {
+        background-clip: content-box;
+        border-color: transparent;
+      }
+    }
+
+    body.first-slide & {
+      &::before {
+        background-color: #5F458C;
+      }
+    }
+
+    body.second-slide & {
+      &::before {
+        background-color: #A0CEFF;
+      }
+    }
+
+    body.third-slide & {
+      color: #fff;
+      &::before {
+        background-color: #3E72EE;
+      }
+    }
 
     &::before {
       width: 100%;
